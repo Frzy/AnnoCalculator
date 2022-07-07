@@ -1,15 +1,15 @@
-const debug = process.env.NODE_ENV !== "production";
+const debug = process.env.NODE_ENV !== 'production'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   exportPathMap: function () {
     return {
-      "/": { page: "/" },
-    };
+      '/': { page: '/' },
+    }
   },
   //assetPrefix: '',
-  assetPrefix: !debug ? "/AnnoCalculator/" : "",
+  assetPrefix: !debug ? '/AnnoCalculator/' : '',
   experimental: {
     images: {
       unoptimized: true,
@@ -20,13 +20,13 @@ const nextConfig = {
     // console.log('webpack');
     // console.log(config.module.rules, dev);
     config.module.rules = config.module.rules.map((rule) => {
-      if (rule.loader === "babel-loader") {
-        rule.options.cacheDirectory = false;
+      if (rule.loader === 'babel-loader') {
+        rule.options.cacheDirectory = false
       }
-      return rule;
-    });
+      return rule
+    })
     // Important: return the modified config
-    return config;
+    return config
   } /*,
   webpackDevMiddleware: (config) => {
     // Perform customizations to webpack dev middleware config
@@ -35,6 +35,6 @@ const nextConfig = {
     // Important: return the modified config
     return config
   }, */,
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
